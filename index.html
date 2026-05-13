@@ -20,11 +20,7 @@
             --font-mono: 'Space Grotesk', sans-serif;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             background-color: var(--bg-color);
@@ -50,10 +46,7 @@
             padding: 20px;
         }
 
-        .hero-content {
-            max-width: 900px;
-            z-index: 2;
-        }
+        .hero-content { max-width: 900px; z-index: 2; }
 
         .emag-tag {
             font-family: var(--font-mono);
@@ -88,11 +81,7 @@
             margin: 0 auto;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
 
         .sapo {
             font-family: var(--font-serif);
@@ -109,7 +98,7 @@
 
         h2 {
             font-family: var(--font-serif);
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 25px;
             color: #ffffff;
         }
@@ -129,6 +118,16 @@
             border: 1px solid rgba(255,255,255,0.05);
         }
 
+        .info-title {
+            text-align: center;
+            font-family: var(--font-mono);
+            color: var(--sub-accent);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
         .latr-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -145,9 +144,10 @@
 
         .latr-num {
             font-family: var(--font-mono);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: bold;
             color: var(--accent-color);
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
         .split-container {
@@ -160,7 +160,7 @@
             flex: 1;
             background-size: cover;
             background-position: center;
-            min-height: 300px;
+            min-height: 350px;
             border-radius: 12px;
             position: relative;
         }
@@ -169,24 +169,25 @@
             position: absolute;
             bottom: 15px; left: 15px;
             background: rgba(0,0,0,0.8);
-            padding: 5px 12px;
+            padding: 8px 15px;
             border-radius: 4px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--sub-accent);
         }
 
         .big-quote {
-            margin: 60px 0;
+            margin: 80px 0;
             text-align: center;
             font-family: var(--font-serif);
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #fff;
             line-height: 1.4;
+            padding: 0 20px;
         }
 
         .table-wrapper {
             overflow-x: auto;
-            margin: 30px 0;
+            margin: 40px 0;
         }
 
         table {
@@ -194,45 +195,54 @@
             border-collapse: collapse;
             background-color: var(--card-bg);
             border-radius: 8px;
+            overflow: hidden;
         }
 
         th, td {
-            padding: 15px;
+            padding: 18px 20px;
             border-bottom: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.95rem;
+            text-align: left;
         }
 
         th {
+            background-color: rgba(255,255,255,0.02);
             color: var(--accent-color);
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
         }
 
         .legal-list {
             list-style: none;
-            margin: 25px 0;
+            margin: 30px 0;
         }
 
         .legal-list li {
             background: rgba(255,51,102,0.05);
-            padding: 15px;
+            padding: 20px;
             border-radius: 6px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             border-left: 4px solid var(--accent-color);
         }
 
         footer {
             background: #000;
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
         .footer-credit {
             font-family: var(--font-mono);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #636366;
-            margin-top: 10px;
         }
 
         @media (max-width: 768px) {
@@ -244,7 +254,7 @@
 
     <header class="hero">
         <div class="hero-content">
-            <p class="emag-tag">Special Report</p>
+            <p class="emag-tag">E-Magazine Special Report</p>
             <h1>Đế Chế Thời Trang Nhanh 2.0<br>Cuộc Chiến Số Tại Việt Nam</h1>
             <div class="meta-info">
                 <div>TÁC GIẢ: <strong>GROUP 1</strong></div>
@@ -255,12 +265,15 @@
 
     <main class="container">
         <article class="sapo">
-            Giai đoạn 2024 - 2026 chứng kiến những bước đi đầy tham vọng của Shein tại thị trường Việt Nam. Với kho hàng khổng lồ tại Long An và mô hình "Real-time Retail", Shein đang định nghĩa lại cuộc chơi thời trang nhanh.
+            Giai đoạn 2024 - 2026 chứng kiến những bước đi đầy tham vọng của Shein tại thị trường Việt Nam. Với việc cắm rễ một kho hàng khổng lồ tại Long An và mô hình "Real-time Retail", Shein đang định nghĩa lại cuộc chơi thời trang nhanh. Liệu công thức này có đủ giúp họ vượt qua những rào cản pháp lý mới?
         </article>
 
         <section>
             <h2>1. Công Thức LATR Thần Tốc</h2>
+            <p>Thay vì dự đoán xu hướng, Shein để thuật toán tự quyết định. Mô hình LATR (Large-scale Automated Test & Re-order) biến chuỗi cung ứng thành một thực thể sống động.</p>
+            
             <div class="infographic-latr">
+                <div class="info-title">Quy Trình Sản Xuất & Thử Nghiệm Tự Động</div>
                 <div class="latr-grid">
                     <div class="latr-box">
                         <div class="latr-num">01</div>
@@ -280,42 +293,73 @@
                     </div>
                 </div>
             </div>
-            <p>Hạ tầng logistics được cắm rễ sâu vào nội địa Việt Nam với mục tiêu tối ưu thời gian giao hàng chỉ còn 7-15 ngày.</p>
+
+            <p>Để tối ưu hành trình logistics, Shein đã dịch chuyển hạ tầng về lưu trữ sâu bên trong nội địa Việt Nam.</p>
+
             <div class="split-container">
-                <div class="split-left" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80');">
-                    <div class="split-label">Kho Long An 15ha</div>
+                <div class="split-left" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80');">
+                    <div class="split-label">Kho Long An (~15ha)</div>
                 </div>
-                <div class="split-right" style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1d704d3?auto=format&fit=crop&w=600&q=80');">
-                    <div class="split-label">Logistics 2026</div>
+                <div class="split-right" style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1d704d3?auto=format&fit=crop&w=800&q=80');">
+                    <div class="split-label">Giao hàng: 7-15 Ngày</div>
                 </div>
             </div>
         </section>
 
         <section>
             <h2>2. Thách Thức Thị Trường & Pháp Lý</h2>
-            <div class="big-quote">"Shoppertainment không chỉ là mua sắm, đó là văn hóa tiêu dùng mới của Gen Z Việt Nam."</div>
+            <div class="big-quote">
+                "Shoppertainment không chỉ là mua sắm, đó là một hình thức giải trí và văn hóa tiêu dùng mới của Gen Z Việt Nam."
+            </div>
+            
+            <p>Cuộc chiến giành giật thị phần TMĐT chưa bao giờ khốc liệt đến thế với sự góp mặt của những ông lớn sở hữu nguồn lực khổng lồ.</p>
+
             <div class="table-wrapper">
                 <table>
                     <thead>
                         <tr>
-                            <th>Đối thủ</th>
+                            <th>Đối thủ cạnh tranh</th>
                             <th>Thị phần 2025</th>
-                            <th>Thế mạnh</th>
+                            <th>Thế mạnh cốt lõi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Shopee</td><td>~56%</td><td>Logistics vững</td></tr>
-                        <tr><td>TikTok Shop</td><td>~41%</td><td>Livestream</td></tr>
+                        <tr>
+                            <td><strong>Shopee</strong></td>
+                            <td>~56%</td>
+                            <td>Hệ thống Logistics nội địa vững chắc.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TikTok Shop</strong></td>
+                            <td>~41%</td>
+                            <td>Sức mạnh Livestream và thuật toán gợi ý.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Local Brands</strong></td>
+                            <td>Đang lên</td>
+                            <td>Am hiểu phom dáng người Á Đông.</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-            <p>Bên cạnh cạnh tranh, Luật Thương mại điện tử 2025 (Luật số 122/2025/QH15) sẽ siết chặt thuế và định danh người bán xuyên biên giới.</p>
+
+            <p>Hành lang pháp lý Việt Nam cũng chuyển mình mạnh mẽ để bảo vệ thị trường nội địa với <strong>Luật Thương mại điện tử 2025 (Luật số 122/2025/QH15)</strong>:</p>
+            
+            <ul class="legal-list">
+                <li><strong>Nghĩa vụ Thuế:</strong> Bắt buộc kê khai và nộp thuế đầy đủ qua cổng điện tử xuyên biên giới.</li>
+                <li><strong>Định Danh Điện Tử:</strong> Kiểm soát nghiêm ngặt mã định danh của người bán và người thực hiện livestream.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Lời Kết</h2>
+            <p>Mô hình bán lẻ thời gian thực chứng minh Việt Nam là vùng lõi chiến lược của Shein. Tuy nhiên, khi người tiêu dùng ngày càng thông minh và pháp luật chặt chẽ hơn, sự tiến hóa là bắt buộc để tồn tại.</p>
         </section>
     </main>
 
     <footer>
-        <div style="font-family: var(--font-serif); font-size: 1.2rem; letter-spacing: 2px;">SHEIN VIETNAM REPORT</div>
-        <div class="footer-credit">© 2026 Thực hiện bởi: Group 1</div>
+        <div class="footer-logo">SHEIN VIETNAM REPORT (2024-2026)</div>
+        <div class="footer-credit">© 2026 Thực hiện bởi: Group 1. Bản quyền thuộc Tòa soạn E-Magazine.</div>
     </footer>
 
 </body>
