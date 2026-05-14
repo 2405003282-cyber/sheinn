@@ -1,185 +1,374 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YOUTH VIỆT | THE CONSCIOUS WARDROBE</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIR Magazine — The New Style Map</title>
   <style>
-      :root {
-          --color-bg: #f9f7f2;
-          --color-text: #1a1a1a;
-          --color-accent: #5c5246;
-      }
-      body {
-          font-family: 'Inter', sans-serif;
-          background-color: var(--color-bg);
-          color: var(--color-text);
-          scroll-behavior: smooth;
-      }
-      h1, h2, h3, .serif {
-          font-family: 'Playfair Display', serif;
-      }
-      .img-container {
-          background-color: #e5e7eb;
-          position: relative;
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-      }
-      .img-container img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .img-container:hover img {
-          transform: scale(1.03);
-      }
-      .dropcap::first-letter {
-          float: left;
-          font-size: 4.5rem;
-          line-height: 1;
-          padding-right: 0.75rem;
-          font-family: 'Playfair Display', serif;
-          color: var(--color-accent);
-      }
-      .sidebar-border {
-          border-left: 1px solid rgba(0,0,0,0.1);
-      }
-      @media (max-width: 1024px) {
-          .sidebar-border { border-left: none; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 2rem; }
-      }
+    /* =========================================================
+       AIR MAGAZINE — SINGLE HTML FILE
+       Tất cả ảnh bạn gửi đã được CHÈN SẴN bằng data:image/webp;base64.
+       Bạn mở file này trong browser hoặc dán vào HTML tester là thấy ảnh.
+
+       CÁCH THAY ẢNH SAU NÀY:
+       1) Tìm comment: CHÈN ẢNH
+       2) Thay src="data:image/webp;base64,..." thành src="ten-anh-cua-ban.jpg"
+       3) Nếu dùng HTML tester online, ảnh nên dùng link online hoặc base64.
+       ========================================================= */
+
+    :root {
+      --paper: #f6f1e8;
+      --paper-2: #fffaf3;
+      --ink: #050505;
+      --muted: #5c5c5c;
+      --line: rgba(0,0,0,.16);
+      --blue: #9fc5ef;
+      --blue-dark: #4e82bb;
+      --pink: #ef9dbb;
+      --pink-soft: #f8cddb;
+      --silver: #d7dbe0;
+      --shadow: 0 24px 70px rgba(0,0,0,.18);
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: Arial, Helvetica, sans-serif;
+      --condensed: 'Arial Narrow', Impact, Haettenschweiler, 'Helvetica Neue Condensed', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 4%, rgba(159,197,239,.30), transparent 28%),
+        radial-gradient(circle at 92% 6%, rgba(239,157,187,.28), transparent 24%),
+        linear-gradient(180deg, #fffaf3 0%, #efe7dc 100%);
+      line-height: 1.45;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .site {
+      width: min(1480px, 100%);
+      margin: auto;
+      background:
+        repeating-linear-gradient(0deg, transparent 0 31px, rgba(0,0,0,.035) 32px),
+        repeating-linear-gradient(90deg, transparent 0 31px, rgba(0,0,0,.025) 32px),
+        var(--paper);
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(0,0,0,.08);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 18px clamp(22px, 5vw, 64px);
+      background: rgba(255,250,243,.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .brand { font-size: 18px; letter-spacing: .18em; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 18px; color: #222; }
+    .nav-links a { opacity: .78; }
+    .nav-links a:hover { opacity: 1; color: var(--blue-dark); }
+
+    .section { padding: clamp(42px, 7vw, 96px) clamp(20px, 5vw, 72px); border-bottom: 1px solid var(--line); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+      gap: clamp(24px, 5vw, 62px);
+      align-items: center;
+      min-height: 92vh;
+      position: relative;
+    }
+    .vertical-label {
+      position: absolute;
+      left: 18px;
+      top: 110px;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      text-transform: uppercase;
+      letter-spacing: .35em;
+      font-weight: 800;
+      font-size: 11px;
+    }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .kicker::before { content: ''; width: 38px; height: 38px; border-radius: 50%; background: var(--blue); box-shadow: inset 0 0 0 9px rgba(255,255,255,.38); }
+    .logo {
+      font-family: var(--serif);
+      font-size: clamp(76px, 14vw, 220px);
+      line-height: .78;
+      letter-spacing: -.09em;
+      margin-bottom: 22px;
+      font-weight: 900;
+    }
+    .logo span {
+      display: block;
+      font-size: clamp(28px, 4vw, 56px);
+      line-height: 1;
+      letter-spacing: -.04em;
+      font-style: italic;
+      font-weight: 400;
+      margin-left: 42%;
+    }
+    .headline {
+      font-family: var(--condensed);
+      font-size: clamp(56px, 9vw, 132px);
+      line-height: .86;
+      letter-spacing: -.04em;
+      text-transform: uppercase;
+      max-width: 740px;
+    }
+    .subhead {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(30px, 4.1vw, 62px);
+      line-height: .96;
+      max-width: 650px;
+      margin-top: 18px;
+      position: relative;
+    }
+    .subhead::after, .pink-stroke::after {
+      content: '';
+      display: block;
+      width: min(360px, 74%);
+      height: 10px;
+      background: var(--pink);
+      border-radius: 999px;
+      margin-top: 10px;
+      transform: rotate(-1.5deg);
+    }
+    .intro {
+      margin-top: 28px;
+      max-width: 590px;
+      font-size: clamp(16px, 1.6vw, 20px);
+      color: #222;
+    }
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 34px;
+      max-width: 620px;
+    }
+    .meta-card {
+      border: 1px solid var(--line);
+      background: rgba(255,250,243,.62);
+      padding: 14px;
+      min-height: 100px;
+    }
+    .meta-card b { display: block; text-transform: uppercase; font-size: 12px; letter-spacing: .12em; margin-bottom: 8px; }
+    .meta-card p { color: var(--muted); font-size: 13px; }
+
+    .page-frame {
+      position: relative;
+      background: #fffaf3;
+      border: 1px solid rgba(0,0,0,.14);
+      box-shadow: var(--shadow);
+      transform: rotate(.35deg);
+      overflow: hidden;
+    }
+    /* Không hiện nhãn trên ảnh khi trình chiếu */
+    .page-frame::before {
+      content: none;
+      display: none;
+    }
+    .page-frame img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .tape { position: absolute; width: 120px; height: 28px; background: rgba(124,178,231,.72); transform: rotate(-8deg); z-index: 3; }
+    .tape.one { left: 8%; bottom: 8%; }
+    .tape.two { right: 10%; top: 9%; background: rgba(239,157,187,.72); transform: rotate(7deg); }
+
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .toc a {
+      background: rgba(255,250,243,.82);
+      min-height: 170px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: .25s ease;
+    }
+    .toc a:hover { transform: translateY(-4px); background: #fff; }
+    .toc-num { font-family: var(--serif); font-size: 32px; color: var(--pink); font-style: italic; }
+    .toc-title { font-family: var(--condensed); text-transform: uppercase; font-size: 25px; line-height: .92; }
+    .toc p { font-size: 13px; color: var(--muted); }
+
+    .spread {
+      display: grid;
+      grid-template-columns: minmax(270px, .75fr) minmax(330px, 1.25fr);
+      gap: clamp(22px, 4vw, 54px);
+      align-items: start;
+    }
+    .spread.reverse { grid-template-columns: minmax(330px, 1.2fr) minmax(270px, .8fr); }
+    .section-title {
+      font-family: var(--condensed);
+      font-size: clamp(54px, 8vw, 124px);
+      line-height: .82;
+      text-transform: uppercase;
+      letter-spacing: -.035em;
+    }
+    .section-subtitle {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(28px, 3.2vw, 48px);
+      line-height: 1;
+      margin: 14px 0 20px;
+    }
+    .section-copy { max-width: 560px; color: #232323; font-size: 17px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+    .chip {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.56);
+      padding: 8px 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .mini-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 30px; }
+    .note {
+      background: rgba(255,250,243,.78);
+      border: 1px solid var(--line);
+      padding: 18px;
+      position: relative;
+    }
+    .note.pink { background: rgba(248,205,219,.68); }
+    .note.blue { background: rgba(159,197,239,.54); }
+    .note b { display: block; text-transform: uppercase; letter-spacing: .12em; font-size: 12px; margin-bottom: 8px; }
+    .note p, .note li { color: #282828; font-size: 14px; }
+    .note ul { padding-left: 18px; }
+    .quote {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 58px);
+      line-height: 1.02;
+      font-style: italic;
+      padding: clamp(28px, 5vw, 70px);
+      text-align: center;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,250,243,.58);
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .mini-page {
+      background: #fffaf3;
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 40px rgba(0,0,0,.13);
+      overflow: hidden;
+    }
+    .mini-page figcaption { padding: 14px 16px 18px; border-top: 1px solid var(--line); }
+    .mini-page b { display: block; font-family: var(--condensed); text-transform: uppercase; font-size: 26px; line-height: .95; }
+    .mini-page span { display: block; color: var(--muted); font-size: 13px; margin-top: 6px; }
+
+    .footer {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 28px;
+      padding: clamp(42px, 6vw, 80px) clamp(20px, 5vw, 72px);
+      background: #050505;
+      color: white;
+    }
+    .footer h2 { font-family: var(--condensed); font-size: clamp(48px, 7vw, 110px); line-height: .85; text-transform: uppercase; }
+    .footer p { color: rgba(255,255,255,.72); max-width: 720px; margin-top: 18px; }
+    .barcode {
+      align-self: end;
+      justify-self: end;
+      width: min(360px, 100%);
+      background: white;
+      color: #111;
+      padding: 16px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: 12px;
+    }
+    .bars {
+      height: 80px;
+      margin-top: 10px;
+      background: repeating-linear-gradient(90deg, #000 0 3px, transparent 3px 7px, #000 7px 12px, transparent 12px 17px);
+    }
+
+    @media (max-width: 1060px) {
+      .hero, .spread, .spread.reverse, .footer { grid-template-columns: 1fr; }
+      .toc { grid-template-columns: repeat(3, 1fr); }
+      .image-grid { grid-template-columns: repeat(2, 1fr); }
+      .vertical-label { display: none; }
+      .nav { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 640px) {
+      .toc, .image-grid, .mini-grid, .hero-meta { grid-template-columns: 1fr; }
+      .section { padding-left: 18px; padding-right: 18px; }
+      .logo { font-size: 86px; }
+      .headline { font-size: 62px; }
+      .section-title { font-size: 60px; }
+      .nav-links { gap: 10px; font-size: 10px; }
+      .page-frame::before { font-size: 9px; }
+    }
   </style>
 </head>
-<body class="p-6 md:p-12">
- 
-  <header class="max-w-7xl mx-auto border-b-2 border-black pb-8 mb-16">
-      <div class="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 text-center md:text-left">
-          <div>
-              <h1 class="text-7xl md:text-9xl font-bold tracking-tighter leading-none">YOUTH VIỆT</h1>
-              <p class="uppercase tracking-[0.3em] text-sm mt-4 font-semibold text-gray-500">
-                  THE CONSCIOUS WARDROBE • SUMMER ISSUE 2026
-              </p>
-          </div>
-          <div class="max-w-xs">
-              <p class="italic text-sm leading-relaxed text-gray-700">
-                  "Tủ đồ của thế hệ sống chất, mặc có chủ đích và yêu thứ mình đang mặc."
-              </p>
-          </div>
+<body>
+  <main class="site">
+    <nav class="nav">
+      <!-- CHÈN CHỮ: Tên tạp chí / navigation -->
+      <a class="brand" href="#top">AIR Magazine</a>
+      <div class="nav-links">
+        <a href="#trends">Trends</a>
+        <a href="#regions">Regions</a>
+        <a href="#runway">Runway</a>
+        <a href="#designers">Designers</a>
+        <a href="#street">Street Style</a>
+        <a href="#forecast">Forecast</a>
       </div>
-  </header>
- 
-  <main class="max-w-7xl mx-auto grid grid-cols-12 gap-10">
-     
-      <article class="col-span-12 lg:col-span-8 mb-16">
-          <div class="img-container w-full h-[650px] mb-10 shadow-sm">
-              <img src="https://lh3.googleusercontent.com/d/1CqDU6qeNqL0h0xasYoCSrMVkGzg_u4gB" alt="Youth Việt Cover">
-          </div>
-         
-          <div class="max-w-3xl">
-              <h2 class="text-5xl md:text-6xl font-bold leading-tight mb-8">
-                  Khi sáng tạo bắt đầu từ thứ người khác bỏ đi.
-              </h2>
-             
-              <div class="img-container w-full h-96 mb-10">
-                  <img src="https://lh3.googleusercontent.com/d/1g80SRMzaB5rEJKjY6OXOVsq9IoBF-JdG" alt="Upcycling Workshop">
-              </div>
- 
-              <p class="text-xl italic text-gray-600 mb-10 border-l-4 border-black pl-6 leading-relaxed">
-                  "Tôi không bắt đầu bằng việc nghĩ mình sẽ làm ra cái gì. Tôi bắt đầu bằng việc nhìn vào một thứ và hỏi: nó còn có thể là gì nữa?" — Nguyễn Thùy Linh.
-              </p>
-             
-              <div class="columns-1 md:columns-2 gap-10 text-justify leading-relaxed text-gray-800">
-                  <p class="dropcap">
-                      Chiếc blazer trên bàn làm việc của Nguyễn Thùy Linh không có nguồn gốc rõ ràng. Nó đã qua ít nhất hai người chủ trước khi được mua lại tại phố Đặng Dung. Linh đã tháo lại đường chỉ vai, thu nhỏ thân áo, đắp thêm mảnh vải thừa để tạo ra một chiếc áo độc bản.
-                  </p>
-                  <p>
-                      Tại TP.HCM, Trần Quốc Minh tiếp cận tủ đồ như một hệ thống: mỗi thứ sở hữu đều có chi phí thực và ẩn. Vải deadstock từ các xưởng may, qua tay Minh, trở thành nguyên liệu xây dựng một tủ đồ vận hành theo logic hoàn toàn khác.
-                  </p>
-              </div>
-          </div>
-      </article>
- 
-      <aside class="col-span-12 lg:col-span-4 sidebar-border pl-0 lg:pl-10 mb-16 flex flex-col gap-12">
-          <section>
-              <div class="img-container w-full h-80 mb-6 shadow-md">
-                  <img src="https://lh3.googleusercontent.com/d/1cuwTENvPXdDSb8hTncSXZ9pSpQQM2UWl" alt="Magazine Contents">
-              </div>
-              <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Số này có gì?</h3>
-              <ul class="serif italic text-lg space-y-2 border-b border-gray-200 pb-6 mb-6">
-                  <li>01. Upcycling Story</li>
-                  <li>02. Thrifting Culture</li>
-                  <li>03. Y2K Revival</li>
-                  <li>04. Gothic Subculture</li>
-              </ul>
-          </section>
- 
-          <section>
-              <div class="img-container w-full h-64 mb-6">
-                  <img src="https://lh3.googleusercontent.com/d/1WXyRZHmv5adxb8MG_eTv41r6K7wRSMoI" alt="Thrift Store Interior">
-              </div>
-              <h4 class="text-2xl font-bold mb-4 serif">Thrifting: Kỹ năng mới</h4>
-              <p class="text-sm text-gray-700 leading-relaxed">
-                  Thrifting hiện nay không còn là chuyện của túi tiền, mà là một kỹ năng am hiểu hàng hóa của những người quyết định chọn khác đi.
-              </p>
-          </section>
-      </aside>
- 
-      <section class="col-span-12 grid grid-cols-1 md:grid-cols-2 gap-10 my-12 py-16 border-y border-black">
-          <div class="flex flex-col">
-              <div class="img-container w-full h-[500px] mb-8">
-                  <img src="https://lh3.googleusercontent.com/d/1wgOl6G9usVBW-GFTPLg054NY7a3NKobN" alt="Y2K Aesthetic">
-              </div>
-              <h3 class="text-3xl font-bold mb-4 serif italic">Y2K: Giữa hoài niệm và tái diễn giải</h3>
-              <p class="text-sm text-gray-600 leading-relaxed">Internet làm phẳng thời gian, khiến thẩm mỹ 1999 và 2025 cùng tồn tại trong một không gian scroll duy nhất.</p>
-          </div>
-         
-          <div class="bg-[#1a1a1a] text-white p-10 flex flex-col justify-between">
-              <div>
-                  <h3 class="text-4xl font-bold mb-6 serif">Gothic <br>Subculture</h3>
-                  <p class="text-sm text-gray-400 mb-10 leading-relaxed font-light">
-                      Màu đen không phải sự trống trải – đó là tiểu văn hoá lâu đời. Trang phục Gothic đòi hỏi độ bền, gắn liền với triết lý slow fashion.
-                  </p>
-              </div>
-              <div class="img-container w-full h-[350px] bg-gray-800">
-                  <img src="https://lh3.googleusercontent.com/d/1yHZNE-R8qMfoUAngmVJzKKseAAEsUUa0" alt="Gothic Community">
-              </div>
-          </div>
-      </section>
- 
-      <section class="col-span-12 mb-20 text-center">
-          <h2 class="text-4xl font-bold mb-16 uppercase tracking-[0.3em] text-gray-400">Local Brands & Di Sản</h2>
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-              <div class="lg:col-span-7">
-                  <div class="img-container w-full h-[500px] shadow-xl">
-                      <img src="https://lh3.googleusercontent.com/d/1donWm2RNyVHLKhenOyCCDVbE4HBpZtzj" alt="Traditional Weaving">
-                  </div>
-              </div>
-              <div class="lg:col-span-5 text-left space-y-6">
-                  <h4 class="text-3xl font-bold serif italic">Kilomet109</h4>
-                  <p class="text-gray-700 leading-relaxed">
-                      Thời trang như một hành động bảo tồn. Việc làm việc trực tiếp với các nghệ nhân dệt thủ công giúp đưa kỹ thuật truyền thống vào sản phẩm đương đại, tạo nên một chuỗi giá trị bền vững và minh bạch.
-                  </p>
-                  <div class="flex gap-4">
-                      <span class="text-[10px] font-bold border border-black px-3 py-1 uppercase">Artisan</span>
-                      <span class="text-[10px] font-bold border border-black px-3 py-1 uppercase">Heritage</span>
-                  </div>
-              </div>
-          </div>
-      </section>
-  </main>
- 
-  <footer class="max-w-7xl mx-auto border-t border-black pt-10 pb-20 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest font-bold text-gray-400">
-      <p>YOUTH VIỆT • The Conscious Wardrobe • Summer 2026</p>
-      <div class="flex gap-10 mt-6 md:mt-0 italic font-normal">
-          <span>Hà Nội</span>
-          <span>Đà Nẵng</span>
-          <span>Sài Gòn</span>
+    </nav>
+
+    <header class="section hero" id="top">
+      <div class="vertical-label">Global Fashion Intelligence</div>
+      <div>
+        <!-- CHÈN CHỮ: Hero text -->
+        <div class="kicker">Issue 01 / Summer 2024</div>
+        <h1 class="logo">AIR <span>Magazine</span></h1>
+        <h2 class="headline">The New Style Map</h2>
+        <p class="subhead">How Gen Z Is Rewriting Global Fashion</p>
+        <p class="intro">AIR Magazine is a digital fashion publication for Gen Z, focused on global and regional fashion trends, upcoming fashion weeks, new collections, emerging designers, and street style culture.</p>
+        <div class="hero-meta">
+          <div class="meta-card"><b>Core Question</b><p>What is trending, why is it trending, and how can Gen Z make it their own?</p></div>
+          <div class="meta-card"><b>Tone</b><p>Modern, editorial, youthful, analytical, visually driven.</p></div>
+          <div class="meta-card"><b>Palette</b><p>Black, white, silver, soft blue, muted pink.</p></div>
+        </div>
       </div>
-  </footer>
- 
-</body>
-</html>
+      <figure class="page-frame">
+        <span class="tape two"></span>
+        <!-- CHÈN ẢNH: Ảnh bìa chính đã được chèn sẵn. Muốn đổi ảnh thì thay src bên dưới. -->
+        <img src="data:image/
+    
